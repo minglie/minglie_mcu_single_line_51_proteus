@@ -12,6 +12,8 @@
 #include "Function.h"
 #include "Main_Constant.h"
 #include "ucos.h"
+#include "ming_mcu_single_line.h"
+
 
 //--------------------Mcu pow-up initialize-----------------
 void mcu_init()

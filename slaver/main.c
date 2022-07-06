@@ -1,7 +1,8 @@
 #include <AT89X52.H>
 #include "Function.h"
 #include "Main_Constant.h"
-#include "ucos.h"
+#include "ming_mcu_single_line.h"
+
 
 /*
 *********************************************************************************************************
@@ -14,22 +15,22 @@
 
 void main()
 {
-	  P2=0x00;
+	  P2=0xff;
     mcu_init();
+	  //启动单线通讯任务
+		start_ming_mcu_single_line_task0();
+	
     while (1)
     {
+
         tm0_counter();
         //此if语句最长周期不能超过800us,否则可能通信错误
         if (bt.one.ms5_s)
         {
-					
-						   //发送数据
+					   //发送数据
 					   task0_tx_buf=P0;
-					
-					   //接收数据
+					  //接收数据
 					   P3= task0_rx_buf ;
-					
-					
              bt.one.ms5_s = 0;
         }
         

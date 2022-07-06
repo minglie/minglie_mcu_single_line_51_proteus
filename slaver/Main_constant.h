@@ -25,9 +25,6 @@
 #define TASK2_PORT P1_1
 
 
-
-
-//----------------------------global variable define---------------------------------------------------
 #ifdef OS_GLOBALS
 #define OS_EXT
 #else
@@ -69,16 +66,6 @@ typedef union
 	unsigned char all;
 } ptl_rx_stack_TypeDef;
 
-typedef struct
-{
-	struct struct_tcb
-	{
-		unsigned rdy : 1;
-		unsigned enable : 1;
-	}one;
-	unsigned char delay;
-	unsigned char step;
-}OSTCB_TypeDef;
 
 
 OS_EXT volatile union bits_decompound //announce a union save special bits
